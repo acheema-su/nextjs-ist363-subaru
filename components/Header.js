@@ -12,6 +12,11 @@ const Header = () =>{
                     </Link> 
                 </li>
                 <li>
+                    <Link href="/vehicles">
+                        Vehicles
+                    </Link> 
+                </li>
+                <li>
                     <Link href="/about">
                         About
                     </Link> 
