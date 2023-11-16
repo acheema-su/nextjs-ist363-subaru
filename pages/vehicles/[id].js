@@ -1,9 +1,9 @@
 import Layout from "../../components/Layout";
-import {getVehicleBySlug, getAllVehiclesSlugs} from '../../lib/api';
+import {getVehicleBySlug, getAllVehicleSlugs} from '../../lib/api';
 
 
 export async function getStaticPaths() {
-    const pathsArr = getAllVehiclesSlugs();
+    const pathsArr = await getAllVehicleSlugs();
     const paths = pathsArr.map((slug) => {
       return {
         params: {
@@ -18,7 +18,7 @@ export async function getStaticPaths() {
   }
   
   export async function getStaticProps ({params}) {
-    const vehicleData = getVehicleBySlug(params.id);
+    const vehicleData = await getVehicleBySlug(params.id);
     return {
       props :{
         vehicleData
@@ -27,10 +27,10 @@ export async function getStaticPaths() {
   }
   
 const SingleVehiclePage = ({vehicleData}) => {
-    const {model, price } = vehicleData;
+    const {title, slug } = vehicleData;
     return <Layout>
-        <h1>{model}</h1>
-        <h2>${price}</h2>
+        <h1>{title}</h1>
+  
     </Layout>
 }
 export default SingleVehiclePage;
