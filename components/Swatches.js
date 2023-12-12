@@ -1,22 +1,20 @@
 import styles from './swatches.module.scss';
 
-
-const Swatches  = ({
+const Swatches = ({ 
     changeHandler,
-    data
+    data 
 }) => {
-    
     return <ul className={styles.swatch__list}>
         {data.map((item) => {
-        return <li 
+            return <li 
                 className={styles.swatch__item}
-                style={{backgroundColor: item.hex }}
+                style={{ backgroundColor: item.hex }}
                 onClick={() => {
                     changeHandler(item);
                 }}
-                >
+            >
             </li>
         })}
-        </ul>
+    </ul>
 }
 export default Swatches;

@@ -1,9 +1,8 @@
-import styles  from './grid.module.scss';
+import styles from './grid.module.scss';
 
-const Grid = ({children}) =>{     
-    return <ul className={styles.grid}>
+const Grid = ({children}) => {
+    return <section className={styles.grid}>
         {children}
-    </ul>
+    </section>
 }
-
 export default Grid;
