@@ -31,7 +31,8 @@ export async function getStaticPaths() {
   }
   
 const SingleVehiclePage = ({vehicleData}) => {
-    const {title, slug, featuredImage } = vehicleData;
+    const {title, slug, featuredImage, vehicleInformation } = vehicleData;
+    const {headline } = vehicleInformation.showcase;
     return <Layout>
         <h1>{title}</h1>
         <Image 

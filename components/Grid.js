@@ -2,7 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './grid.module.scss';
 import { motion } from "framer-motion";
+import Heading from './Heading';
+import Paragraph from './Paragraph';
 
+ 
 
 
 const Grid = ({items}) => {
@@ -27,7 +30,7 @@ const Grid = ({items}) => {
         open: {
             y: 0,
             opacity:1
-
+ 
         }
 
 
@@ -52,12 +55,21 @@ const Grid = ({items}) => {
                                 width={trimLevels[0].images.thumbnail.node.mediaDetails.width}
                                 height={trimLevels[0].images.thumbnail.node.mediaDetails.height}
                             />
-                        }
-                        <h3>{title}</h3>
-                        <p>
+                        }   
+                        <Heading 
+                            level={3} 
+                            color="black"
+                        
+                        >
+                            {title}</Heading>
+
+                        <Paragraph>
+                            Starting at $25000
+                        </Paragraph>
+                        <Paragraph>
                             <Link href={`/vehicles/${slug}`}>Learn more</Link>
-                        </p>
-                    </motion.article>
+                        </Paragraph>
+                    </motion.article> 
                 })}
     </motion.section>
 }

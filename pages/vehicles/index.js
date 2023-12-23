@@ -3,6 +3,8 @@ import { useState } from 'react';
 import Container from '../../components/Container';
 import FilterBar from '../../components/FilterBar';
 import Grid from '../../components/Grid';
+import Heading from '../../components/Heading';
+
 import Layout from '../../components/Layout';
 
 
@@ -43,7 +45,15 @@ const VehiclesPage = ({ vehicles, vehicleTypes }) => {
      });
 
     return <Layout>
-        <h1>Vehicles</h1>
+        <Heading 
+        level={1} 
+        color = "black"
+        textAlign="center"
+        marginBottom={2}
+        paddingBottom={100}
+        >
+            Vehicles
+            </Heading>
         <Container>
             <FilterBar 
                 items={vehicleTypes} 
