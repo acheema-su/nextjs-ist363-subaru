@@ -1,6 +1,6 @@
 import Image from 'next/image';
-
-
+import Heading from '../../components/Heading'; 
+import Showcase from '../../components/Showcase';
 import Layout from "../../components/Layout";
 import {getVehicleBySlug, getAllVehicleSlugs} from '../../lib/api';
 
@@ -32,16 +32,20 @@ export async function getStaticPaths() {
   
 const SingleVehiclePage = ({vehicleData}) => {
     const {title, slug, featuredImage, vehicleInformation } = vehicleData;
-    const {headline } = vehicleInformation.showcase;
+    const { headline } = vehicleInformation.showcase;
     return <Layout>
-        <h1>{title}</h1>
-        <Image 
-          src={featuredImage.node.sourceUrl}
-          alt={featuredImage.node.altText}
-          width={featuredImage.node.mediaDetails.width}
-          height={featuredImage.node.mediaDetails.height}
+      <Showcase 
+        subtitle={title}
+        title={headline}
+        featuredImage={featuredImage}
+      />
 
-        />
+      <div id='main-content'>
+            Main content will go here
+
+
+      </div>
+        
   
     </Layout>
 }
