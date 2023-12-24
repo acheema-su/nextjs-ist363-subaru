@@ -5,7 +5,7 @@ import Layout from "../../components/Layout";
 import {getVehicleBySlug, getAllVehicleSlugs} from '../../lib/api';
 import TrimPicker from '../../components/TrimPicker';
 import Container from '../../components/Container';
-
+import {getDrivingLocations} from '../../lib/locations';
 
 
 export async function getStaticPaths() {
@@ -26,16 +26,19 @@ export async function getStaticPaths() {
   
   export async function getStaticProps ({params}) {
     const vehicleData = await getVehicleBySlug(params.id);
+    const drivingLocations = getDrivingLocations();
     return {
       props :{
-        vehicleData
+        vehicleData,
+        drivingLocations
       }
     }
   }
   
-const SingleVehiclePage = ({vehicleData}) => {
+const SingleVehiclePage = ({vehicleData, drivingLocations}) => {
     const {title, slug, featuredImage, vehicleInformation } = vehicleData;
     const { headline } = vehicleInformation.showcase;
+    const {trimLevels} = vehicleInformation;
     return <Layout>
       <Showcase 
         subtitle={title}
@@ -45,7 +48,9 @@ const SingleVehiclePage = ({vehicleData}) => {
 
       <div id='main-content'>
         <Container>
-            <TrimPicker />
+            <TrimPicker 
+            trims={trimLevels} 
+            locations={drivingLocations}  />
         </Container>
 
 
