@@ -1,0 +1,17 @@
+@use '../sass/abstracts/vars';
+
+
+.btn {
+    background-color: white;
+    padding: 0.75rem 2rem ;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: black;
+    font-family: Arial;    
+    &.primary {
+        background-color: vars.$color_primary;
+    }
+    &.secondary {
+        background-color: pink;
+    }
+}
