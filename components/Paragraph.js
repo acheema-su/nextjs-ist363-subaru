@@ -1,13 +1,32 @@
+// import styles from './paragraph.module.scss';
+
+
+
+// const Paragraph = ({children}) => {
+//     return <p className={styles.paragraph}>{children}</p>
+// }
+
+// export default Paragraph;
+
+
+
+import classnames from 'classnames/bind';
+
 import styles from './paragraph.module.scss';
 
+let cx = classnames.bind(styles);
 
+const Paragraph = ({
+    children,
+    color="black"
+}) => {
+    let paragraphClasses = cx({
+        paragraph: true,
+        [`color-${color}`] : color
+    });
 
-const Paragraph = ({children}) => {
-    return <p className={styles.paragraph}>{children}</p>
+    return <p className={paragraphClasses}>
+        {children}
+    </p>
 }
-
 export default Paragraph;
-
-
-
-

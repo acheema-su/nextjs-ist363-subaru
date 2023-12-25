@@ -19,3 +19,9 @@
 
     }
 }
+.paragraph {
+    font-size: 1rem;
+    line-height: 1.35;
+    font-family: Arial;
+    @include mixins.colors();
+}

@@ -52,7 +52,7 @@ const TrimPicker = ({trims, locations}) => {
             </div>        
         <div className={styles.trimpicker__images}>
             <Image 
-                src={`/backgrounds/series-background-${activeLocation + 1}.jpg}`}
+                src={`/backgrounds/series-background-${activeTrim + 1}.jpg}`}
                 alt={`${locations[activeLocation].name} background`}
                 width={1900}
                 height={656}
@@ -69,3 +69,4 @@ const TrimPicker = ({trims, locations}) => {
         </section>
 }  
 export default TrimPicker;     
+ 
