@@ -28,6 +28,13 @@
             object-fit: cover;
 
         }
+    &__foreground {
+        width: 100%;
+        height: auto;
+        position: relative;
+        z-index: 2;
+        
+    }
     }
     @include mixins.breakpoint(laptop) {
         flex-direction: row;
