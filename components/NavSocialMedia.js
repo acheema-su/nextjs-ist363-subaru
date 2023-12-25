@@ -26,7 +26,7 @@ const accounts = [
 ];
 
 const NavSocialMedia = () => {
-    // loop, li, a, imgs with svg icons
+   
     return <nav>
         <ul className={styles.nav_socialmedia}>
             {accounts.map((account, index) => {

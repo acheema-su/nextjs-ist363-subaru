@@ -1,8 +1,3 @@
-// const Footer = () => {
-//     return <footer>Footer goes here.</footer>
-    
-// }
-// export default Footer;
 
 import Heading from './Heading';
 import NavSocialMedia from './NavSocialMedia';
