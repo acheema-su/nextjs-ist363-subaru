@@ -6,7 +6,7 @@ import {getVehicleBySlug, getAllVehicleSlugs} from '../../lib/api';
 import TrimPicker from '../../components/TrimPicker';
 import Container from '../../components/Container';
 import {getDrivingLocations} from '../../lib/locations';
-
+import ColorPicker from '../../components/ColorPicker';
 
 export async function getStaticPaths() {
     const vehicles = await getAllVehicleSlugs();
@@ -38,7 +38,7 @@ export async function getStaticPaths() {
 const SingleVehiclePage = ({vehicleData, drivingLocations}) => {
     const {title, slug, featuredImage, vehicleInformation } = vehicleData;
     const { headline } = vehicleInformation.showcase;
-    const {trimLevels} = vehicleInformation;
+    const {trimLevels, vehicleColors} = vehicleInformation;
     return <Layout>
       <Showcase 
         subtitle={title}
@@ -51,6 +51,10 @@ const SingleVehiclePage = ({vehicleData, drivingLocations}) => {
             <TrimPicker 
             trims={trimLevels} 
             locations={drivingLocations}  />
+            <ColorPicker 
+            colors={vehicleColors}
+            
+            />
         </Container>
 
 
