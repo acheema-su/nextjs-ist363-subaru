@@ -7,6 +7,7 @@ import TrimPicker from '../../components/TrimPicker';
 import Container from '../../components/Container';
 import {getDrivingLocations} from '../../lib/locations';
 import ColorPicker from '../../components/ColorPicker';
+import CallToAction from '../../components/CallToAction';
 
 export async function getStaticPaths() {
     const vehicles = await getAllVehicleSlugs();
@@ -56,7 +57,7 @@ const SingleVehiclePage = ({vehicleData, drivingLocations}) => {
             
             />
         </Container>
-
+        <CallToAction vehicleName={title} />
 
       </div> 
         
