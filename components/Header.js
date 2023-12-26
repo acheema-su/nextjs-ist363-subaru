@@ -6,13 +6,15 @@ import Nav from './Nav';
 import Row from './Row'; 
 import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-
+import Link from 'next/link';
 const Header = () =>{
     const [isMobileNavOpen, setIsMobileNavOpen ] = useState(false);
     return <header className={styles.header}>
         <Container>
             <Row justifyContent="space-between">
+                <Link href='/'>
                 <Logo />
+                </Link>
                 <Nav.Desktop />
                 <ButtonUI icon ="menu"clickHandler={() => {
                     setIsMobileNavOpen(true);

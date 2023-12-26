@@ -7,7 +7,7 @@ let cx = classnames.bind(styles);
 const Button = ({ 
     children,
     clickHandler,
-    type = "secondary"
+    type 
 }) => {
     let buttonClasses = cx({
         btn : true,

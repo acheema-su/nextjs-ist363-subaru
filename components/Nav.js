@@ -92,7 +92,7 @@ const Mobile = ({closeHandler}) => {
                 className={styles.nav__list__item}
                 variants={itemVariants}
                 >
-                    <Link href={slug}>
+                    <Link href={`${slug}`}>
                         {label}
                     </Link>
                     </motion.li>

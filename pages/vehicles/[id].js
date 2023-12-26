@@ -8,13 +8,13 @@ import Container from '../../components/Container';
 import {getDrivingLocations} from '../../lib/locations';
 import ColorPicker from '../../components/ColorPicker';
 import CallToAction from '../../components/CallToAction';
-
+import { Head } from 'next/head';
 export async function getStaticPaths() {
     const vehicles = await getAllVehicleSlugs();
     const paths = vehicles.map((vehicle) => {
       const {slug} = vehicle.node;
       return {
-        params: {
+        params: {   
           id:slug
         }
       }
@@ -41,6 +41,11 @@ const SingleVehiclePage = ({vehicleData, drivingLocations}) => {
     const { headline } = vehicleInformation.showcase;
     const {trimLevels, vehicleColors} = vehicleInformation;
     return <Layout>
+      <Head>
+        <title>
+          {title} | Subaru USA
+        </title>
+      </Head>
       <Showcase 
         subtitle={title}
         title={headline}

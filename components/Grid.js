@@ -6,7 +6,14 @@ import Heading from './Heading';
 import Paragraph from './Paragraph';
 
  
+const convertPriceToFormattedString = (price) => {
+        let priceArray = price.toString().split('');
+        for (let i = priceArray.length - 3; i > 0; i -= 3) {
+            priceArray.splice(i, 0, ',');
+        }
 
+        return '$' + priceArray.join('');
+}
 
 const Grid = ({items}) => {
     const sectionVariants = {
@@ -44,9 +51,10 @@ const Grid = ({items}) => {
         {items.map((item, index) => {
                     const { title, slug, vehicleInformation } = item.node;
                     const { trimLevels } = vehicleInformation;
-                    return <motion.article 
+                    return <motion.article
                     key={index}
                     variants={articleVariants}
+                    className={styles.grid__item}  
                     >
                         {trimLevels && trimLevels[0].images.thumbnail && 
                             <Image 
@@ -63,9 +71,11 @@ const Grid = ({items}) => {
                         >
                             {title}</Heading>
 
-                        <Paragraph>
-                            Starting at $25000
+                        <Paragraph> 
+                            Starting at ${convertPriceToFormattedString(StringtrimLevels[0].msrp)}
                         </Paragraph>
+                        {trimLevels[0].msrp &&
+ 
                         <Paragraph>
                             <Link href={`/vehicles/${slug}`}>Learn more</Link>
                         </Paragraph>
